@@ -38,43 +38,37 @@
     <hr/>
 
     <ul>
-        <?php foreach($projetos as $projeto){
-            echo "<li>{$projeto['titulo']} ...</li>";
-            echo "<li>{$projeto['data']} ...</li>";
-            echo "<li>{$projeto['descricao']} ...</li>";
-        }
-        
-        ?>
+        <?php foreach($projetos as $projeto): ?>
+            <div
+                <?php if((2024 - $ano) > 2): ?>
+                    style="background-color: burlywood;"
+                <?php endif; ?>
+            >
+            <h2><?= $projeto['titulo'] ?></h2>
+            <p><?= $projeto['data'] ?></p>
+            <div><?= $projeto['descricao'] ?></div>
+
+            <div> Projeto:
+                <?php if(! $projeto['finalizado']): ?> 
+                    <span style="color: red;">⛔ não finalizado</span>
+                <?php else: ?>
+                    <span style="color: green;">✅ finalizado</span>
+                <?php endif; ?> 
+
+                <!-- <?php
+                    if($projeto['finalizado']){
+                        echo "✅ finalizado";
+                    }
+                    else{
+                        echo "⛔ não finalizado";
+                    }
+                
+                ?> -->
+            </div>
+            </div>
+        <?php endforeach; ?>
 
     </ul>
 
-
-    <!-- <div
-        <?php if((2024 - $ano) > 2): ?>
-            style="background-color: burlywood;"
-        <?php endif; ?>
-    >
-        <h2><?= $projeto ?></h2>
-        <p><?= $descricao ?></p>
-        <div><?= $dataDoProjeto ?></div>
-
-        <div> Projeto:
-            <?php if($finalizado): ?> 
-                <span style="color: green;">✅ finalizado</span>
-            <?php else: ?>
-                <span style="color: red;">⛔ não finalizado</span>
-            <?php endif; ?> 
-
-            <?php
-                if($finalizado){
-                    echo "✅ finalizado";
-                }
-                else{
-                    echo "⛔ não finalizado";
-                }
-            
-            ?>
-        </div>
-    </div>  -->
 </body>
 </html>
