@@ -19,10 +19,10 @@
 
         $projetos = [
             [
-                "Meu Portifolio",
-                false,
-                "2024-10-11",
-                "Meu primeiro portifolio. Escrito em PHP e HTML."
+                "titulo" => "Meu Portifolio",
+                "finalizado" => false,
+                "data" => "2024-10-11",
+                "descricao" => "Meu primeiro portifolio. Escrito em PHP e HTML."
             ],
             // "Meu Portifolio",
             // "Lista de Tarefas",
@@ -39,9 +39,9 @@
 
     <ul>
         <?php foreach($projetos as $projeto){
-            echo "<li>{$projeto[0]} ...</li>";
-            echo "<li>{$projeto[2]} ...</li>";
-            echo "<li>{$projeto[3]} ...</li>";
+            echo "<li>{$projeto['titulo']} ...</li>";
+            echo "<li>{$projeto['data']} ...</li>";
+            echo "<li>{$projeto['descricao']} ...</li>";
         }
         
         ?>
