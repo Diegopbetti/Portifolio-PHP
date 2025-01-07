@@ -11,11 +11,24 @@
         $saudacao = "oi ";
         $titulo = $saudacao . "Portifílio do" . $nome;
         $subtitulo = "...";
-        $ano = 2024;
+        $ano = 2020;
         $projeto = "Meu portifólio";
         $finalizado = true;
         $dataDoProjeto = "2024-10-11";
-        $descricao = "...";
+        $descricao = "Meu primeiro portifolio. Escrito em PHP e HTML.";
+
+        $projetos = [
+            [
+                "Meu Portifolio",
+                false,
+                "2024-10-11",
+                "Meu primeiro portifolio. Escrito em PHP e HTML."
+            ],
+            // "Meu Portifolio",
+            // "Lista de Tarefas",
+            // "Controle de leitura de livros",
+
+        ];
     ?>
 
     <h1><?= $titulo ?></h1>
@@ -24,7 +37,19 @@
 
     <hr/>
 
-    <div
+    <ul>
+        <?php foreach($projetos as $projeto){
+            echo "<li>{$projeto[0]} ...</li>";
+            echo "<li>{$projeto[2]} ...</li>";
+            echo "<li>{$projeto[3]} ...</li>";
+        }
+        
+        ?>
+
+    </ul>
+
+
+    <!-- <div
         <?php if((2024 - $ano) > 2): ?>
             style="background-color: burlywood;"
         <?php endif; ?>
@@ -34,7 +59,6 @@
         <div><?= $dataDoProjeto ?></div>
 
         <div> Projeto:
-            <!-- if else diferente -->
             <?php if($finalizado): ?> 
                 <span style="color: green;">✅ finalizado</span>
             <?php else: ?>
@@ -51,6 +75,6 @@
             
             ?>
         </div>
-    </div>
+    </div>  -->
 </body>
 </html>
