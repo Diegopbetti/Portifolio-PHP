@@ -71,8 +71,8 @@
 
         $filtroProjetos = function(){};
 
-        $projetosFiltrados = filtro($projetos, function($projeto){
-            return $projeto['ano'] < 2024;
+        $projetosFiltrados = array_filter($projetos, function($projeto){
+            return $projeto['ano'] >= 2024;
         });
 
     ?>
