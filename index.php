@@ -30,6 +30,18 @@
                 "data" => "2024-05-11",
                 "descricao" => "Lista de tarefas. Escrito em PHP e HTML."
             ],
+            [
+                "titulo" => "Controle de leitura de livros",
+                "finalizado" => true,
+                "data" => "2024-05-11",
+                "descricao" => "Lista de livros. Escrito em PHP e HTML."
+            ],
+            [
+                "titulo" => "Mais um projeto",
+                "finalizado" => false,
+                "data" => "2025-05-11",
+                "descricao" => "Projeto em andamento. Escrito em PHP e HTML."
+            ],
             // "Meu Portifolio",
             // "Lista de Tarefas",
             // "Controle de leitura de livros",
@@ -45,6 +57,22 @@
             }
 
         }
+
+        function filtrarProjeto($listaDeProjetos, $finalizado = null){
+
+            if(is_null($finalizado)){
+                return $listaDeProjetos;
+            }
+
+            $filtrados = [];
+
+            foreach($listaDeProjetos as $projeto){
+                if($projeto['finalizado'] === $finalizado){
+                    $filtrados [] = $projeto;
+                }
+            }
+            return $filtrados;
+        }
     ?>
 
     <h1><?=$titulo ?></h1>
@@ -54,7 +82,7 @@
     <hr/>
 
     <ul>
-        <?php foreach($projetos as $projeto): ?>
+        <?php foreach(filtrarProjeto($projetos, null) as $projeto): ?>
             <div
                 <?php if( ! ((2024 - $ano) > 2) ): ?>
                     style="background-color: burlywood;"
