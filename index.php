@@ -40,7 +40,8 @@
                 "titulo" => "Mais um projeto",
                 "finalizado" => false,
                 "ano" => "2025",
-                "descricao" => "Projeto em andamento. Escrito em PHP e HTML."
+                "descricao" => "Projeto em andamento. Escrito em PHP e HTML.",
+                "stack" => ["PHP", "HTML", "CSS", "JS"],
             ],
             // "Meu Portifolio",
             // "Lista de Tarefas",
