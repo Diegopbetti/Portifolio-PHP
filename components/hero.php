@@ -1,3 +1,13 @@
+<?php
+$itens = [
+    ['href' => 'https://x.com/r2luna', 'src' => '/images/twitter.png', 'alt' => 'Twitter Logo'],
+    ['href' => 'https://x.com/r2luna', 'src' => '/images/facebook.png', 'alt' => 'Facebook Logo'],
+    ['href' => 'https://x.com/r2luna', 'src' => '/images/linkedin.png', 'alt' => 'Linkedin Logo'],
+    ['href' => 'https://x.com/r2luna', 'src' => '/images/youtube.png', 'alt' => 'Youtube Logo'],
+]
+
+?>
+
 <section class="flex gap-x-3">
     <!-- Titulo e Descrição -->
     <div class="w-2/3">
@@ -7,10 +17,14 @@
             Especializado em PHP e HTML, mas também tenho conhecimento em outras linguagens como C++ e React.
         </p>
         <ul class="flex gap-x-3 mt-3">
-            <li><a href=""><img class="h-8 hover:animate-bounce" src="/images/twitter.png" alt=""></a></li>
-            <li><a href=""><img class="h-8 hover:animate-bounce" src="/images/facebook.png" alt=""></a></li>
-            <li><a href=""><img class="h-8 hover:animate-bounce" src="/images/youtube.png" alt=""></a></li>
-            <li><a href=""><img class="h-8 hover:animate-bounce" src="/images/linkedin.png" alt=""></a></li>
+            <?php foreach ($itens as $item): ?>
+                <li>
+                    <a href="<?= $item['href'] ?>" target="_blank">
+                        <img class="h-8 hover:animate-bounce" src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>">
+                    </a>
+
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 
