@@ -1,62 +1,73 @@
-<div>
-    <div class="">
+    <?php
+
+    $projetos = [
+        [
+            "titulo" => "Lista de tarefas",
+            "finalizado" => true,
+            "ano" => "2024",
+            "descricao" => "Lista de tarefas. Escrito em PHP e HTML.",
+            "stack" => ["Astro.js", "Web desing", "TailWind", "Typescript"],
+            "img" => "/images/project1.jpg"
+        ],
+        [
+            "titulo" => "Controle de leitura de livros",
+            "finalizado" => true,
+            "ano" => "2024",
+            "descricao" => "Lista de livros. Escrito em PHP e HTML.",
+            "stack" => ["Blog" ,"Next.js", "JavaScript"],
+            "img" => "/images/project2.jpg"
+        ],
+        [
+            "titulo" => "Mais um projeto",
+            "finalizado" => false,
+            "ano" => "2025",
+            "descricao" => "Projeto em andamento. Escrito em PHP e HTML.",
+            "stack" => ["Astro.js", "Web design", "Typescript"],
+            "img" => "/images/project3.jpg"
+        ],
+    ];
+
+
+    ?>
+
+    <div>
         <h1 class="text-2xl font-bold py-6">Projetos Recentes</h1>
     </div>
-    <div class="">
-        <div class="bg-slate-800 flex rounded-lg p-3 items-center">
-            <div class="w-1/5"><img src="/images/project1.jpg" alt="" class="h-28 ml-10"></div>
-            <div class="w-4/5 space-y-3">
-                <div class="flex gap-x-10">
-                    <h3 class="font-semibold text-xl">
-                        ✅ Project 1 <span class="text-xs text-gray-400">(finalizado em 2024)</span>
-                    </h3>
-                    <div>
-                        <span class="bg-pink-600 rounded-md px-2 py-1 text-black font-semibold text-xs">Astro.js</span>
-                        <span class="bg-lime-400 rounded-md px-2 py-1 text-black font-semibold text-xs">Web design</span>
-                        <span class="bg-blue-500 rounded-md px-2 py-1 text-black font-semibold text-xs">TailWind.css</span>
-                        <span class="bg-red-600 rounded-md px-2 py-1 text-black font-semibold text-xs">TypeScript</span>
+    <?php foreach ($projetos as $projeto): ?>
+
+        <div>
+            <div>
+                <div class="bg-slate-800 flex rounded-lg p-3 items-center">
+                    <div class="w-1/5 flex items-center justify-center">
+                        <img src="<?= $projeto['img'] ?>" alt="" class="h-28">
+                    </div>
+                    <div class="w-4/5 space-y-3">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-xl">
+                                <?php if ($projeto['finalizado']): ?> ✅ <?php endif; ?>
+                                <?= $projeto['titulo'] ?>
+                                <?php if ($projeto['finalizado']): ?>
+                                    <span class="text-xs text-gray-400">(finalizado em <?= $projeto['ano'] ?>)</span>
+                                <?php else: ?>
+                                    <span class="text-xs text-gray-400">(em desenvolvimento)</span>
+                                <?php endif; ?>
+
+                            </h3>
+                            <div class="space-x-1">
+                                <?php
+                                $colors = ['fuchsia', 'lime', 'sky', 'rose', 'amber', 'teal', 'purple'];
+                                foreach ($projeto['stack'] as $posicao => $language):
+                                ?>
+                                    <span class="bg-<?= $colors[$posicao] ?>-600 rounded-md px-2 py-1 text-black font-semibold text-xs">
+                                        <?= $language ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <p class="leading-6"><?=$projeto['descricao'] ?>.</p>
                     </div>
                 </div>
-                <p class="leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
         </div>
-        <div class="bg-slate-800 flex flex rounded-lg p-3 items-center mt-4">
-            <div class="w-1/5"><img src="/images/project2.jpg" alt="" class="h-28 ml-10"></div>
-            <div class="w-4/5 space-y-3">
-                <div class="flex gap-x-10">
-                    <h3 class="font-semibold text-xl">
-                        ✅Project 2 <span class="text-xs text-gray-400">( finalizado em 2024)</span>
-                    </h3>
-                    <div>
-                        <span class="bg-purple-600 rounded-md px-2 py-1 text-black font-semibold text-xs">Next.js</span>
-                        <span class="bg-green-800 rounded-md px-2 py-1 text-black font-semibold text-xs">Blog</span>
-                        <span class="bg-yellow-500 rounded-md px-2 py-1 text-black font-semibold text-xs">JavaScript</span>
-                    </div>
-                </div>
-                <p class="leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-        <div class="bg-slate-800 flex rounded-lg p-3 items-center mt-4">
-            <div class="w-1/5"><img src="/images/project3.jpg" alt="" class="h-28 ml-10"></div>
-            <div class="w-4/5 space-y-3">
-                <div class="flex gap-x-10">
-                    <h3 class="font-semibold text-xl">
-                        ⛔ Project 3 <span span class="text-xs text-gray-400">(Não finalizado)</span>
-                    </h3>
-                    <div>
-                        <span class="bg-pink-600 rounded-md px-2 py-1 text-black font-semibold text-xs">Astro.js</span>
-                        <span class="bg-violet-700 rounded-md px-2 py-1 text-black font-semibold text-xs">Web design</span>
-                        <span class="bg-red-600 rounded-md px-2 py-1 text-black font-semibold text-xs">TypeScript</span>
-                    </div>
-                </div>
-                <p class="leading-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-        </div>
-    </div>
-</div>
+
+    <?php endforeach ?>
